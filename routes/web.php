@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Files;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => view('layouts.app'));
+Route::get('/', Files::class);
