@@ -4,16 +4,46 @@ namespace App\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class Files extends Component
 {
+    public string $currentDirectory = '';
+
     public function render(): View
     {
-        $files = Storage::disk('filebrowser')->allFiles('/');
+        return view('livewire.files');
+    }
 
-        dump($files);
+    #[Computed]
+    public function directories(): array
+    {
+        return array_map(
+            static fn (string $path) => last(explode('/', $path)),
+            Storage::disk('filebrowser')->directories($this->currentDirectory)
+        );
+    }
 
-        return view('livewire.files', ['files' => $files]);
+    #[Computed]
+    public function files(): array
+    {
+        return array_map(
+            static fn (string $path) => last(explode('/', $path)),
+            Storage::disk('filebrowser')->files($this->currentDirectory)
+        );
+    }
+
+    public function changeDirectory(string $directory): void
+    {
+        $parts = explode('/', $this->currentDirectory);
+
+        if ($directory === '..') {
+            array_pop($parts);
+        } else {
+            $parts[] = $directory;
+        }
+
+        $this->currentDirectory = implode('/', $parts);
     }
 }
