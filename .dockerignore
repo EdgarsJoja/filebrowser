@@ -3,4 +3,16 @@ phpunit.xml
 .phpunit.result.cache
 /vendor
 /node_modules
-build/filebrowser
+/build
+/public/build
+.git
+.idea
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/framework/testing
+/storage/logs
+Makefile

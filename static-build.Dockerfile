@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 dunglas/frankenphp:static-builder
+FROM --platform=linux/amd64 dunglas/frankenphp:static-builder as base
 
 ENV NO_COMPRESS=true
 
@@ -19,6 +19,26 @@ RUN cp .env.example .env
 
 # Install the dependencies
 RUN composer install --ignore-platform-reqs --no-dev -a
+
+FROM node:20.15.0-slim as builder
+
+RUN mkdir build
+WORKDIR /build
+
+COPY --from=base /go/src/app/dist/app/package.json .
+COPY --from=base /go/src/app/dist/app/package-lock.json .
+COPY --from=base /go/src/app/dist/app/vite.config.js .
+COPY --from=base /go/src/app/dist/app/tailwind.config.js .
+COPY --from=base /go/src/app/dist/app/postcss.config.js .
+COPY --from=base /go/src/app/dist/app/resources ./resources
+
+RUN npm ci
+RUN npm run build
+
+FROM base
+
+COPY --from=builder /build/node_modules/ ./node_modules
+COPY --from=builder /build/public/build ./public/build
 
 # Build the static binary
 WORKDIR /go/src/app/
