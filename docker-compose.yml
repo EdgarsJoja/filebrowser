@@ -12,6 +12,7 @@ services:
             - '443:443/udp' # HTTP/3
         volumes:
             - ./:/app
+            - ./php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
             - caddy_data:/data
             - caddy_config:/config
         # comment the following line in production, it allows to have nice human-readable logs in dev
