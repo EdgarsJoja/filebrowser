@@ -5,3 +5,13 @@ dev-up:
 .PHONY=dev-stop
 dev-stop:
 	docker compose stop
+
+.PHONY=build-static
+build-static:
+	rm -rf build/
+	docker build -t filebrowser -f static-build.Dockerfile .
+	docker create --name filebrowser-tmp filebrowser
+	docker cp filebrowser-tmp:/go/src/app/dist/frankenphp-linux-x86_64 filebrowser
+	docker rm filebrowser-tmp
+	mkdir build
+	mv filebrowser build/

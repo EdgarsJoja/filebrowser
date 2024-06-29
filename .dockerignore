@@ -1,3 +1,6 @@
 /tests
 phpunit.xml
 .phpunit.result.cache
+/vendor
+/node_modules
+build/filebrowser
