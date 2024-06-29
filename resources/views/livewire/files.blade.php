@@ -3,7 +3,7 @@
         <livewire:menu/>
     </div>
 
-    <div class="relative flex flex-col gap-4 text-gray-700 bg-white rounded-xl bg-clip-border w-full">
+    <div class="relative flex flex-col gap-8 text-gray-700 bg-white rounded-xl bg-clip-border w-full">
         <nav aria-label="breadcrumb" class="block w-full">
             <ol class="flex flex-wrap items-center w-full px-4 py-2 rounded-md bg-blue-gray-50 bg-opacity-60">
                 @foreach($this->fullPath as $pathPart)
