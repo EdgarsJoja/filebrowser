@@ -1,4 +1,8 @@
 <div class="py-8">
+    <div class="mb-8">
+        <livewire:menu />
+    </div>
+
     <div class="relative flex flex-col text-gray-700 bg-white rounded-xl bg-clip-border w-full">
         <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
             <div role="button"

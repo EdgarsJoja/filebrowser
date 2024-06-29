@@ -6,6 +6,10 @@ dev-up:
 dev-stop:
 	docker compose stop
 
+.PHONY=dev-restart
+dev-restart:
+	docker compose stop && make dev-up
+
 .PHONY=build-static
 build-static:
 	rm -rf build/
