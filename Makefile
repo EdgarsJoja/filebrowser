@@ -10,6 +10,10 @@ dev-stop:
 dev-restart:
 	docker compose stop && make dev-up
 
+.PHONY=dev-ssh
+dev-ssh:
+	docker exec -it filebrowser.dev bash
+
 .PHONY=build-static
 build-static:
 	rm -rf build/

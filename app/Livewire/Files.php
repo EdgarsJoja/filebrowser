@@ -17,6 +17,15 @@ class Files extends Component
     }
 
     #[Computed]
+    public function fullPath(): array
+    {
+        return array_filter([
+            ...explode('/', config('filesystems.disks.filebrowser.root')),
+            ...explode('/', $this->currentDirectory),
+        ]);
+    }
+
+    #[Computed]
     public function directories(): array
     {
         return array_map(
