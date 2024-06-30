@@ -1,4 +1,9 @@
-<div class="py-8">
+<div
+    class="py-8"
+    x-data
+    @file-uploaded.window="$wire.$refresh()"
+    @directory-created.window="$wire.$refresh()"
+>
     <div class="mb-8">
         <livewire:menu :currentDirectory="$currentDirectory"/>
     </div>
