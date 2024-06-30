@@ -27,5 +27,7 @@ class FileUpload extends Component
     {
         $this->file?->storeAs($this->currentDirectory, $this->file->getClientOriginalName(), 'filebrowser');
         $this->file = null;
+
+        $this->dispatch('file-uploaded');
     }
 }

@@ -1,7 +1,13 @@
 <div>
     <form class="m-0" wire:submit="save">
         <div class="flex flex-col gap-8">
-            <input type="file" wire:model="file" class="border border-gray-400 border-dashed p-4 w-full h-32"/>
+            <input
+                type="file"
+                wire:model="file"
+                class="border border-gray-400 border-dashed p-4 w-full h-32"
+                webkitdirectory
+                mozdirectory
+            />
 
             <button
                 type="submit"
