@@ -1,6 +1,6 @@
 <div class="py-8">
     <div class="mb-8">
-        <livewire:menu/>
+        <livewire:menu :currentDirectory="$currentDirectory"/>
     </div>
 
     <div class="relative flex flex-col gap-8 text-gray-700 bg-white rounded-xl bg-clip-border w-full">

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Reactive;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -13,7 +14,9 @@ class FileUpload extends Component
     use WithFileUploads;
 
     public $file;
-    public $currentDirectory = '';
+
+    #[Reactive]
+    public string $currentDirectory = '';
 
     public function render(): View
     {

@@ -22,7 +22,7 @@
                 class="relative m-4 w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
             >
                 <div class="p-8">
-                    <livewire:file-upload />
+                    <livewire:file-upload :currentDirectory="$currentDirectory" />
                 </div>
             </div>
         </div>
