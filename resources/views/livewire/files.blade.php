@@ -37,7 +37,7 @@
 
                     <div
                         class="p-2 text-gray-400 hover:text-red-800"
-                        wire:click="delete('{{ $directory }}', {{ true }})"
+                        wire:click.stop="delete('{{ $directory }}', {{ true }})"
                         wire:confirm="{{ "Are you sure you want to delete directory \"$directory\"?" }}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
