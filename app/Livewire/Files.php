@@ -55,4 +55,16 @@ class Files extends Component
 
         $this->currentDirectory = implode('/', $parts);
     }
+
+    public function delete(string $name, bool $directory = false): void
+    {
+        $path = rtrim($this->currentDirectory, '/') . '/' . $name;
+        $disk = Storage::disk('filebrowser');
+
+        if ($directory) {
+            $disk->deleteDirectory($path);
+        } else {
+            $disk->delete($path);
+        }
+    }
 }

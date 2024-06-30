@@ -5,8 +5,6 @@
                 type="file"
                 wire:model="file"
                 class="border border-gray-400 border-dashed p-4 w-full h-32"
-                webkitdirectory
-                mozdirectory
             />
 
             <button
