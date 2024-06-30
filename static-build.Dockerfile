@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 dunglas/frankenphp:static-builder as base
+FROM --platform=linux/arm64 dunglas/frankenphp:static-builder AS base
 
 ENV NO_COMPRESS=true
 
@@ -20,7 +20,7 @@ RUN cp .env.example .env
 # Install the dependencies
 RUN composer install --ignore-platform-reqs --no-dev -a
 
-FROM node:20.15.0-slim as builder
+FROM node:20.15.0-slim AS builder
 
 RUN mkdir build
 WORKDIR /build
