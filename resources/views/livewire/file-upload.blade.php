@@ -16,7 +16,7 @@
             />
 
             <div class="text-black" x-show="uploading" x-cloak>
-                Uploading: <b><span x-text="progress"></span>%</b>
+                Uploading: <span class="font-bold"><span x-text="progress"></span>%</span>
             </div>
 
             <button

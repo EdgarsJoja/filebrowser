@@ -16,4 +16,5 @@ phpunit.xml
 !/storage/framework/views/.gitignore
 /storage/framework/testing
 /storage/logs
+/storage/app/livewire-tmp
 Makefile
