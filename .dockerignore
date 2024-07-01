@@ -5,6 +5,7 @@ phpunit.xml
 /node_modules
 /build
 /public/build
+/public/hot
 .git
 .idea
 /storage/framework/cache/data/*
