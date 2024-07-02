@@ -25,7 +25,7 @@ class FileUpload extends Component
 
     public function save(): void
     {
-        $this->file?->storeAs($this->currentDirectory, $this->file->getClientOriginalName(), 'filebrowser');
+        $this->file?->storePubliclyAs($this->currentDirectory, $this->file->getClientOriginalName(), 'filebrowser');
         $this->file = null;
 
         $this->dispatch('file-uploaded');

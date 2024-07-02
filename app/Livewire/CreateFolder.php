@@ -29,7 +29,11 @@ class CreateFolder extends Component
 
         $basePath = rtrim($this->currentDirectory, '/');
 
-        Storage::disk('filebrowser')->makeDirectory("$basePath/$this->newDirectoryName");
+        $disk = Storage::disk('filebrowser');
+        $path = "$basePath/$this->newDirectoryName";
+
+        $disk->makeDirectory($path);
+        $disk->setVisibility($path, 'public');
 
         $this->reset('newDirectoryName');
 
