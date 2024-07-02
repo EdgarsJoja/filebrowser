@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Attribute\AsCommand;
 
 class SetFileBrowserRoot extends Command
 {
-    protected $signature = 'filebrowser:set-root';
+    protected $signature = 'filebrowser:set-root {root}';
 
     public function handle(): void
     {
-        $root = $this->ask('What should be the root directory?');
+        $root = $this->argument('root');
 
         if ($root) {
             $result = $this->setEnvironmentValue(['FILEBROWSER_DIRECTORY_ROOT' => $root]);

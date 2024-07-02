@@ -19,7 +19,7 @@ max_file_uploads=10
 ```
 5. Set File Browser root directory (absolute path):
 ```bash
-./filebrowser-<arch> php-cli artisan filebrowser:set-root
+./filebrowser-<arch> php-cli artisan filebrowser:set-root /path/to/directory
 ```
 6. Start server:
 ```bash
