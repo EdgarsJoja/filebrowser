@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 dunglas/frankenphp:static-builder AS base
+FROM dunglas/frankenphp:static-builder AS base
 
 ENV NO_COMPRESS=true
 
