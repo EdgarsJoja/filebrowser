@@ -16,7 +16,9 @@
             />
 
             <div class="text-black" x-show="uploading" x-cloak>
-                Uploading: <span class="font-bold"><span x-text="progress"></span>%</span>
+                <div class="relative w-full h-3 overflow-hidden rounded-full bg-gray-200">
+                    <span :style="'width:' + progress + '%'" class="absolute w-24 h-full duration-300 ease-linear bg-gray-900" x-cloak></span>
+                </div>
             </div>
 
             <button
