@@ -1,7 +1,7 @@
-<div class="flex gap-4">
+<div class="flex flex-col sm:flex-row gap-4">
     <div x-data="{ open: false }" @file-uploaded.window="open = false">
         <button
-            class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] flex items-center gap-3"
+            class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] flex items-center gap-3 w-full"
             type="button"
             @click="open = true"
         >
@@ -19,7 +19,7 @@
         >
             <div
                 @click.outside="open = false"
-                class="relative m-4 w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
+                class="relative m-4 w-full min-w-[40%] max-w-[80%] lg:max-w-[600px] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
             >
                 <div class="p-8">
                     <livewire:file-upload :currentDirectory="$currentDirectory" />
@@ -30,10 +30,11 @@
 
     <div x-data="{ open: false }" @directory-created.window="open = false">
         <button
-            class="px-4 py-2 h-full font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            class="px-4 py-2 h-full font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none flex items-center gap-3 w-full"
             type="button"
             @click="open = true"
         >
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
             Create Folder
         </button>
         <div
@@ -44,7 +45,7 @@
         >
             <div
                 @click.outside="open = false"
-                class="relative m-4 w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
+                class="relative m-4 w-full min-w-[40%] max-w-[80%] lg:max-w-[600px] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
             >
                 <div class="p-8">
                     <livewire:create-folder :currentDirectory="$currentDirectory" />
