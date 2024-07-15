@@ -7,7 +7,7 @@
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
 
-        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="icon" type="image/x-icon" href="favicon.svg">
     </head>
     <body>
         <div class="px-8 max-w-screen-xl mx-auto font-sans">

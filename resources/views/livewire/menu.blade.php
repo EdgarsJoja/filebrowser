@@ -5,10 +5,7 @@
             type="button"
             @click="open = true"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
-                <path
-                    d="M438.5-338.87v-326.69L335.41-562.24l-58.89-58.41L480-824.13l203.48 203.48-58.89 58.41L521.5-665.56v326.69h-83Zm-171.91 155q-34.5 0-58.61-24.26t-24.11-58.74v-72h83v72h426.26v-72h83v72q0 34.48-24.27 58.74-24.27 24.26-58.77 24.26h-426.5Z"/>
-            </svg>
+            <x-tabler-upload />
             Upload Files
         </button>
         <div
@@ -34,7 +31,7 @@
             type="button"
             @click="open = true"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+            <x-tabler-folder-plus />
             Create Folder
         </button>
         <div
