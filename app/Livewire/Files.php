@@ -2,27 +2,21 @@
 
 namespace App\Livewire;
 
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Files extends Component
 {
     public string $currentDirectory = '';
 
+    #[On('list-updated')]
     public function render(): View
     {
         return view('livewire.files');
-    }
-
-    #[Computed]
-    public function fullPath(): array
-    {
-        return array_filter([
-            ...explode('/', config('filesystems.disks.filebrowser.root')),
-            ...explode('/', $this->currentDirectory),
-        ]);
     }
 
     #[Computed]
@@ -30,7 +24,7 @@ class Files extends Component
     {
         return array_map(
             static fn (string $path) => last(explode('/', $path)),
-            Storage::disk('filebrowser')->directories($this->currentDirectory)
+            $this->disk()->directories($this->currentDirectory)
         );
     }
 
@@ -39,10 +33,11 @@ class Files extends Component
     {
         return array_map(
             static fn (string $path) => last(explode('/', $path)),
-            Storage::disk('filebrowser')->files($this->currentDirectory)
+            $this->disk()->files($this->currentDirectory)
         );
     }
 
+    #[On('change-directory')]
     public function changeDirectory(string $directory): void
     {
         $parts = explode('/', $this->currentDirectory);
@@ -56,15 +51,8 @@ class Files extends Component
         $this->currentDirectory = implode('/', $parts);
     }
 
-    public function delete(string $name, bool $directory = false): void
+    protected function disk(): Filesystem
     {
-        $path = rtrim($this->currentDirectory, '/') . '/' . $name;
-        $disk = Storage::disk('filebrowser');
-
-        if ($directory) {
-            $disk->deleteDirectory($path);
-        } else {
-            $disk->delete($path);
-        }
+        return Storage::disk('filebrowser');
     }
 }
