@@ -11,6 +11,9 @@ export default {
     theme: {
         extend: {},
     },
+    daisyui: {
+        themes: ['light', 'dark', 'lofi', 'dim', 'nord']
+    },
     plugins: [
         daisyui,
     ],

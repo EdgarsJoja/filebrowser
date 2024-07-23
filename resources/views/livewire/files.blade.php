@@ -12,14 +12,14 @@
         <livewire:menu :currentDirectory="$currentDirectory"/>
     </div>
 
-    <div class="relative flex flex-col gap-4 text-neutral-content rounded-xl bg-clip-border w-full">
+    <div class="relative flex flex-col gap-4 rounded-xl bg-clip-border w-full">
         <x-partials.breadcrumbs :currentDirectory="$this->currentDirectory" />
 
         <nav
             class="flex min-w-[240px] flex-col gap-1 py-2 font-sans text-sm font-normal max-h-[75dvh] overflow-y-auto"
         >
             <div role="button"
-                 class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-neutral hover:text-neutral-content active:bg-neutral active:text-neutral-content focus:bg-neutral focus:text-neutral-content font-bold"
+                 class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-base-100 active:bg-base-100 focus:bg-base-100 font-bold"
                  wire:click="changeDirectory('..')"
             >
                 ..
@@ -34,7 +34,7 @@
             @endforeach
         </nav>
 
-        <div wire:loading class="absolute inset-0 bg-neutral/50 grid place-content-center rounded-md">
+        <div wire:loading class="absolute inset-0 bg-base-100/80 grid place-content-center rounded-md">
             <x-loading class="size-12 mx-auto block" />
         </div>
     </div>
