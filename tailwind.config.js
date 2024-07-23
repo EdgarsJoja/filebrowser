@@ -1,14 +1,17 @@
-import withMT from '@material-tailwind/html/utils/withMT.js'
+import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
-export default withMT({
-  content: [
-      "./resources/**/*.blade.php",
-      "./resources/**/*.js",
-      "./resources/**/*.vue",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-});
+export default {
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./vendor/robsontenorio/mary/src/View/Components/**/*.php",
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [
+        daisyui,
+    ],
+};

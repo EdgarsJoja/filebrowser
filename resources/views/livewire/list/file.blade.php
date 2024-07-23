@@ -1,14 +1,14 @@
 <div role="button"
-     class="flex items-center justify-between w-full p-3 py-1 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900 break-all"
+     class="flex items-center justify-between w-full p-3 py-1 leading-tight transition-all rounded-lg outline-none text-start break-all hover:bg-neutral hover:text-neutral-content active:bg-neutral active:text-neutral-content focus:bg-neutral focus:text-neutral-content group"
 >
     {{ $file }}
 
     <div
-        class="p-2 text-gray-400 hover:text-red-800"
+        class="p-2 text-neutral group-hover:text-neutral-content hover:!text-red-800"
         wire:click="delete('{{ $file }}')"
         wire:confirm="{{ "Are you sure you want to delete \"$file\"?" }}"
         @click="$dispatch('list-updated')"
     >
-        <x-tabler-trash />
+        <x-icon name="o-trash" />
     </div>
 </div>

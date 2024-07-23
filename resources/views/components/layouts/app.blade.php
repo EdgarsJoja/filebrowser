@@ -1,17 +1,22 @@
-<html>
-    <head lang="en">
-        <title>{{ $title ?? 'File Browser' }}</title>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ isset($title) ? $title.' - '.config('app.name') : config('app.name') }}</title>
 
-        <meta name="viewport" content="width=device-width">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        @vite('resources/css/app.css')
-        @vite('resources/js/app.js')
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+</head>
+<body class="min-h-screen mx-auto font-sans antialiased bg-base-200/50 dark:bg-base-200">
+    <x-main>
+        <x-slot:content>
+            {{ $slot }}
+        </x-slot:content>
+    </x-main>
 
-        <link rel="icon" type="image/x-icon" href="favicon.svg">
-    </head>
-    <body>
-        <div class="px-8 max-w-screen-xl mx-auto font-sans">
-            {{ $slot ?? '' }}
-        </div>
-    </body>
+    <x-toast />
+</body>
 </html>
