@@ -10,7 +10,7 @@
 
     <link rel="icon" type="image/x-icon" href="favicon.svg">
 </head>
-<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+<body class="min-h-screen px-4 sm:px-8 font-sans antialiased bg-base-200/50 dark:bg-base-200">
     <div class="max-w-screen-xl mx-auto">
         {{ $slot }}
     </div>

@@ -30,7 +30,10 @@ COPY --from=base /go/src/app/dist/app/package-lock.json .
 COPY --from=base /go/src/app/dist/app/vite.config.js .
 COPY --from=base /go/src/app/dist/app/tailwind.config.js .
 COPY --from=base /go/src/app/dist/app/postcss.config.js .
+
+# Copy files that should be parsed by TailwindCSS
 COPY --from=base /go/src/app/dist/app/resources ./resources
+COPY --from=base /go/src/app/dist/app/vendor/robsontenorio/mary/src/View/Components ./vendor/robsontenorio/mary/src/View/Components
 
 RUN npm ci
 RUN npm run build
