@@ -35,7 +35,7 @@
         </nav>
 
         <div wire:loading class="absolute inset-0 bg-base-100/80 grid place-content-center rounded-md">
-            <x-loading class="size-12 mx-auto block" />
+            <x-loading class="size-12 mx-auto block text-primary" />
         </div>
     </div>
 </div>

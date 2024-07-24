@@ -14,6 +14,8 @@ class Directory extends Component
     public string $currentDirectory;
     public string $directory;
 
+    public bool $confirmDeleteModal = false;
+
     public function render(): View
     {
         return view('livewire.list.directory');
@@ -26,6 +28,9 @@ class Directory extends Component
 
     public function delete(string $name): void
     {
+        $this->confirmDeleteModal = false;
+        $this->dispatch('list-updated');
+
         $path = rtrim($this->currentDirectory, '/') . '/' . $name;
         $this->disk()->deleteDirectory($path);
     }

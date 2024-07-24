@@ -14,6 +14,8 @@ class File extends Component
     public string $currentDirectory;
     public string $file;
 
+    public bool $confirmDeleteModal = false;
+
     public function render(): View
     {
         return view('livewire.list.file');
@@ -21,6 +23,7 @@ class File extends Component
 
     public function delete(string $name): void
     {
+        $this->confirmDeleteModal = false;
         $this->dispatch('list-updated');
 
         $path = rtrim($this->currentDirectory, '/') . '/' . $name;
