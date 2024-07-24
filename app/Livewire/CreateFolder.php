@@ -8,9 +8,12 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
+use Mary\Traits\Toast;
 
 class CreateFolder extends Component
 {
+    use Toast;
+
     #[Reactive]
     public string $currentDirectory = '';
 
@@ -35,8 +38,9 @@ class CreateFolder extends Component
         $disk->makeDirectory($path);
         $disk->setVisibility($path, 'public');
 
-        $this->reset('newDirectoryName');
-
         $this->dispatch('directory-created');
+        $this->success("Directory \"$this->newDirectoryName\" created!");
+
+        $this->reset('newDirectoryName');
     }
 }

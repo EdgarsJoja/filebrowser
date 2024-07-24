@@ -8,10 +8,12 @@ use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Mary\Traits\Toast;
 
 class FileUpload extends Component
 {
     use WithFileUploads;
+    use Toast;
 
     public $file;
 
@@ -25,9 +27,12 @@ class FileUpload extends Component
 
     public function save(): void
     {
-        $this->file?->storePubliclyAs($this->currentDirectory, $this->file->getClientOriginalName(), 'filebrowser');
+        $fileName = $this->file->getClientOriginalName();
+
+        $this->file?->storePubliclyAs($this->currentDirectory, $fileName, 'filebrowser');
         $this->file = null;
 
         $this->dispatch('file-uploaded');
+        $this->success("File \"$fileName\" has been uploaded!");
     }
 }

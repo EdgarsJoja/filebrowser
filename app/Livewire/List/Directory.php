@@ -8,9 +8,12 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Mary\Traits\Toast;
 
 class Directory extends Component
 {
+    use Toast;
+
     public string $currentDirectory;
     public string $directory;
 
@@ -33,6 +36,8 @@ class Directory extends Component
 
         $path = rtrim($this->currentDirectory, '/') . '/' . $name;
         $this->disk()->deleteDirectory($path);
+
+        $this->success("Directory \"$name\" deleted!");
     }
 
     protected function disk(): Filesystem
