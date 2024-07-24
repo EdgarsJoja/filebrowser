@@ -10,12 +10,10 @@
 
     <link rel="icon" type="image/x-icon" href="favicon.svg">
 </head>
-<body class="min-h-screen mx-auto font-sans antialiased bg-base-200/50 dark:bg-base-200">
-    <x-main>
-        <x-slot:content>
-            {{ $slot }}
-        </x-slot:content>
-    </x-main>
+<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+    <div class="max-w-screen-xl mx-auto">
+        {{ $slot }}
+    </div>
 
     <x-toast />
 
