@@ -8,7 +8,7 @@
     class="relative"
 >
     <x-form wire:submit="save" no-separator>
-        <x-file wire:model="file" label="File" />
+        <x-file wire:model="file" label="File" class="max-w-md [&_input]:max-w-full" />
 
         <x-slot:actions>
             <x-button label="Upload" type="submit" class="btn-primary" ::disabled="uploading" spinner="save" />

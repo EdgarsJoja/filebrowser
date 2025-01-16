@@ -12,7 +12,7 @@ export default {
         extend: {},
     },
     daisyui: {
-        themes: ['light', 'dark', 'lofi', 'dim', 'nord']
+        themes: ['light', 'dark', 'lofi', 'dim', 'nord', 'black']
     },
     plugins: [
         daisyui,

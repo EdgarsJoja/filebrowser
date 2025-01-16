@@ -12,7 +12,7 @@ dev-restart:
 
 .PHONY=dev-ssh
 dev-ssh:
-	docker exec -it filebrowser.dev bash
+	docker exec -it filebrowser.dev sh
 
 .PHONY=build-static
 build-static:

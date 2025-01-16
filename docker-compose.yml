@@ -1,6 +1,6 @@
 services:
     app:
-        image: dunglas/frankenphp
+        image: dunglas/frankenphp:1.4-php8.3-alpine
         container_name: filebrowser.dev
         # uncomment the following line if you want to use a custom Dockerfile
         #build: .
