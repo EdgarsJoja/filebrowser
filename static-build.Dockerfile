@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:static-builder AS base
+FROM dunglas/frankenphp:static-builder-1.2.2 AS base
 
 ENV NO_COMPRESS=true
 
@@ -8,7 +8,7 @@ COPY . .
 
 # Remove the tests and other unneeded files to save space
 # Alternatively, add these files to a .dockerignore file
-RUN rm -Rf tests/
+RUN rm -rf tests/
 
 # Copy .env file
 RUN cp .env.example .env
@@ -22,7 +22,6 @@ RUN composer install --ignore-platform-reqs --no-dev -a
 
 FROM node:20.15.0-slim AS builder
 
-RUN mkdir build
 WORKDIR /build
 
 COPY --from=base /go/src/app/dist/app/package.json .
@@ -48,5 +47,5 @@ WORKDIR /go/src/app/
 RUN EMBED=dist/app/ \
     PHP_VERSION=8.3.16 \
     PHP_EXTENSIONS=ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml \
-    FRANKENPHP_VERSION=1.4.0 \
+#    FRANKENPHP_VERSION=1.2.5 \
      ./build-static.sh
