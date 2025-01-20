@@ -13,6 +13,8 @@ class Files extends Component
 {
     public string $currentDirectory = '';
 
+    public string $filter = '';
+
     #[On('list-updated')]
     public function render(): View
     {
@@ -24,7 +26,7 @@ class Files extends Component
     {
         return array_map(
             static fn (string $path) => last(explode('/', $path)),
-            $this->disk()->directories($this->currentDirectory)
+            $this->filter($this->disk()->directories($this->currentDirectory)),
         );
     }
 
@@ -33,7 +35,7 @@ class Files extends Component
     {
         return array_map(
             static fn (string $path) => last(explode('/', $path)),
-            $this->disk()->files($this->currentDirectory)
+            $this->filter($this->disk()->files($this->currentDirectory)),
         );
     }
 
@@ -49,6 +51,11 @@ class Files extends Component
         }
 
         $this->currentDirectory = implode('/', $parts);
+    }
+
+    protected function filter(array $items): array
+    {
+        return array_filter($items, fn(string $item) => str_contains(strtolower($item), strtolower($this->filter)));
     }
 
     protected function disk(): Filesystem

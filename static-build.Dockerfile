@@ -46,5 +46,7 @@ COPY --from=builder /build/public/build ./public/build
 # Build the static binary
 WORKDIR /go/src/app/
 RUN EMBED=dist/app/ \
-    FRANKENPHP_VERSION=1.2.1 \
+    PHP_VERSION=8.3.16 \
+    PHP_EXTENSIONS=ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml \
+    FRANKENPHP_VERSION=1.4.0 \
      ./build-static.sh

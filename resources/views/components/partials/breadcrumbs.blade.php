@@ -1,5 +1,5 @@
 <nav class="flex justify-between px-3">
-    <ol class="inline-flex flex-wrap items-center mb-3 space-x-3 text-sm sm:mb-0 text-base-content/50">
+    <ol class="inline-flex flex-wrap items-center mb-3 space-x-3 text-sm sm:mb-0 text-base-content">
         @foreach($fullPath() as $pathPart)
             <li>
                 <a

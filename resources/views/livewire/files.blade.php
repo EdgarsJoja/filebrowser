@@ -4,7 +4,7 @@
     @file-uploaded.window="$wire.$refresh()"
     @directory-created.window="$wire.$refresh()"
 >
-    <h1 class="text-4xl font-bold mb-16 max-w-fit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+    <h1 class="text-4xl font-bold mb-4 max-w-fit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
         File Browser
     </h1>
 
@@ -13,10 +13,11 @@
     </div>
 
     <div class="relative flex flex-col gap-4 rounded-xl bg-clip-border w-full">
+        <x-input label="Filter" icon="o-magnifying-glass" wire:model.live.debounce.300ms="filter" clearable />
         <x-partials.breadcrumbs :currentDirectory="$this->currentDirectory" />
 
         <nav
-            class="flex min-w-[240px] flex-col gap-1 py-2 font-sans text-sm font-normal max-h-[75dvh] overflow-y-auto"
+            class="flex min-w-[240px] flex-col gap-1 pt-2 pb-8 font-sans text-sm font-normal max-h-[75dvh] overflow-y-auto"
         >
             <div role="button"
                  class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-base-100 active:bg-base-100 focus:bg-base-100 font-bold"
