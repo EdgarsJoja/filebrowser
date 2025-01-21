@@ -23,5 +23,22 @@ max_file_uploads=10
 ```
 6. Start server:
 ```bash
-env PHP_INI_SCAN_DIR=$(pwd) ./filebrowser-<arch> php-server 
+env PHP_INI_SCAN_DIR=$(pwd) ./filebrowser-<arch> php-server --listen=:8080
+```
+
+## Building
+
+Run:
+```bash
+make build-static
+```
+
+To build for other architectures you might need to install `qemu-user-static`:
+```bash
+apt install qemu-user-static
+```
+
+Check supported architectures with:
+```bash
+docker buildx ls
 ```
