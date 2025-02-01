@@ -4,10 +4,6 @@
     @file-uploaded.window="$wire.$refresh()"
     @directory-created.window="$wire.$refresh()"
 >
-    <h1 class="text-4xl font-bold mb-4 max-w-fit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-        File Browser
-    </h1>
-
     <div class="mb-8">
         <livewire:menu :currentDirectory="$currentDirectory"/>
     </div>
@@ -23,7 +19,7 @@
                  class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-base-100 active:bg-base-100 focus:bg-base-100 font-bold"
                  wire:click="changeDirectory('..')"
             >
-                ..
+                <x-icon name="o-arrow-uturn-left" />
             </div>
             @foreach($this->directories as $directory)
                 @php $key = "file-$this->currentDirectory-$directory" @endphp
