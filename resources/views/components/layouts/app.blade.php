@@ -17,6 +17,8 @@
 
     <x-toast />
 
-    <div class="fixed left-2 bottom-2 opacity-50">v{{ config('app.version') }}</div>
+    @if(config('app.version'))
+        <div class="fixed left-2 bottom-2 opacity-50">v{{ config('app.version') }}</div>
+    @endif
 </body>
 </html>
