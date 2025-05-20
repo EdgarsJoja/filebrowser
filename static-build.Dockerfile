@@ -27,8 +27,6 @@ WORKDIR /build
 COPY --from=base /go/src/app/dist/app/package.json .
 COPY --from=base /go/src/app/dist/app/package-lock.json .
 COPY --from=base /go/src/app/dist/app/vite.config.js .
-COPY --from=base /go/src/app/dist/app/tailwind.config.js .
-COPY --from=base /go/src/app/dist/app/postcss.config.js .
 
 # Copy files that should be parsed by TailwindCSS
 COPY --from=base /go/src/app/dist/app/resources ./resources
@@ -47,5 +45,5 @@ WORKDIR /go/src/app/
 RUN EMBED=dist/app/ \
     PHP_VERSION=8.3.16 \
     PHP_EXTENSIONS=ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml \
-#    FRANKENPHP_VERSION=1.2.5 \
-     ./build-static.sh
+    #    FRANKENPHP_VERSION=1.2.5 \
+    ./build-static.sh
