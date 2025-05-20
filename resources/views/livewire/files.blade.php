@@ -29,6 +29,10 @@
                 @php $key = "file-$this->currentDirectory-$file" @endphp
                 <livewire:list.file :currentDirectory="$this->currentDirectory" :file="$file" :key="$key" />
             @endforeach
+
+            @if(!$this->directories && !$this->files)
+                <p class="text-center py-4">Empty</p>
+            @endif
         </nav>
 
         <div wire:loading class="absolute inset-0 bg-base-100/80 grid place-content-center rounded-md">
