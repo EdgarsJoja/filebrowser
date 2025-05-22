@@ -3,7 +3,7 @@
 @import "./fonts.css";
 
 @plugin "daisyui" {
-    themes: sunset --default;
+    themes: dim --default;
 }
 
 /* maryUI */
