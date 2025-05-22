@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Services\Filesystem\FolderSize;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +16,13 @@ class Files extends Component
 
     public string $filter = '';
 
+    protected FolderSize $folderSize;
+
+    public function boot(FolderSize $folderSize): void
+    {
+        $this->folderSize = $folderSize;
+    }
+
     #[On('list-updated')]
     public function render(): View
     {
@@ -24,19 +32,33 @@ class Files extends Component
     #[Computed]
     public function directories(): array
     {
-        return array_map(
+        $directories = array_map(
             static fn (string $path) => last(explode('/', $path)),
             $this->filter($this->disk()->directories($this->currentDirectory)),
         );
+
+        usort($directories, fn (string $a, string $b) => strnatcasecmp($a, $b));
+
+        return $directories;
     }
 
     #[Computed]
     public function files(): array
     {
-        return array_map(
+        $files = array_map(
             static fn (string $path) => last(explode('/', $path)),
             $this->filter($this->disk()->files($this->currentDirectory)),
         );
+
+        usort($files, fn (string $a, string $b) => strnatcasecmp($a, $b));
+
+        return $files;
+    }
+
+    #[Computed]
+    public function size(): string
+    {
+        return $this->folderSize->size($this->disk()->path($this->currentDirectory));
     }
 
     #[On('change-directory')]

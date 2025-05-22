@@ -9,11 +9,18 @@
     </div>
 
     <div class="relative flex flex-col gap-4 rounded-xl bg-clip-border w-full">
-        <x-input label="Filter" icon="o-magnifying-glass" wire:model.live.debounce.300ms="filter" clearable />
+        <x-stat
+            title="Size"
+            value="{{ $this->size }}"
+            icon="o-folder"
+            color="text-primary"
+        />
+
+        <x-input icon="o-magnifying-glass" wire:model.live.debounce.300ms="filter" placeholder="filter items..." clearable />
         <x-partials.breadcrumbs :currentDirectory="$this->currentDirectory" />
 
         <nav
-            class="flex min-w-[240px] flex-col gap-1 pt-2 pb-8 font-sans text-sm font-normal max-h-[75dvh] overflow-y-auto"
+            class="flex min-w-[240px] flex-col gap-1 pt-2 pb-8 text-sm font-normal max-h-[75dvh] overflow-y-auto"
         >
             <div role="button"
                  class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-base-100 active:bg-base-100 focus:bg-base-100 font-bold"

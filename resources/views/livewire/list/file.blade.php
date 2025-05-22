@@ -1,5 +1,6 @@
-<div role="button"
-     class="flex items-center justify-between w-full p-3 py-1 leading-tight transition-all rounded-lg outline-none text-start break-all hover:bg-base-100 active:bg-base-100 focus:bg-base-100"
+<div
+    role="button"
+    class="flex items-center justify-between w-full p-3 py-1 leading-tight transition-all rounded-lg outline-none text-start break-all hover:bg-base-100 active:bg-base-100 focus:bg-base-100"
 >
     {{ $file }}
 
