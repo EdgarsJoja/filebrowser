@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import "./fonts.css";
+
 @plugin "daisyui" {
     themes: sunset --default;
 }
@@ -15,3 +17,7 @@
 @source "../**/*.vue";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-mono: 'LeagueMono', 'mono';
+}
