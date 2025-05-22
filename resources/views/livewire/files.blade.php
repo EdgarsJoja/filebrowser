@@ -10,13 +10,20 @@
 
     <div class="relative flex flex-col gap-4 rounded-xl bg-clip-border w-full">
         <x-stat
+            class="max-w-fit"
             title="Size"
             value="{{ $this->size }}"
             icon="o-folder"
             color="text-primary"
         />
 
-        <x-input icon="o-magnifying-glass" wire:model.live.debounce.300ms="filter" placeholder="filter items..." clearable />
+        <x-input
+            icon="o-magnifying-glass"
+            wire:model.live.debounce.300ms="filter"
+            placeholder="filter items..."
+            class="bg-neutral"
+            clearable
+        />
         <x-partials.breadcrumbs :currentDirectory="$this->currentDirectory" />
 
         <nav
@@ -42,7 +49,7 @@
             @endif
         </nav>
 
-        <div wire:loading class="absolute inset-0 bg-base-100/80 grid place-content-center rounded-md">
+        <div wire:loading class="absolute inset-0 backdrop-blur grid place-content-center rounded-md">
             <x-loading class="size-12 mx-auto block text-primary" />
         </div>
     </div>
