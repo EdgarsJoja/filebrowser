@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Services\Filesystem\FolderSize;
+use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
@@ -59,6 +60,12 @@ class Files extends Component
     public function size(): string
     {
         return $this->folderSize->size($this->disk()->path($this->currentDirectory));
+    }
+
+    #[Computed]
+    public function lastModified(): string
+    {
+        return Carbon::parse($this->disk()->lastModified($this->currentDirectory))->diffForHumans();
     }
 
     #[On('change-directory')]
