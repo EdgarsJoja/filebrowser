@@ -30,15 +30,15 @@
                         title="Size"
                         value="{{ $this->size }}"
                         icon="o-folder"
-                        color="text-primary"
+                        color="text-accent"
                     />
                 </div>
                 <div class="shrink-0">
                     <x-stat
                         title="Last modified"
                         value="{{ $this->lastModified }}"
-                        icon="o-folder"
-                        color="text-primary"
+                        icon="o-clock"
+                        color="text-accent"
                     />
                 </div>
             </div>
